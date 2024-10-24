@@ -106,4 +106,17 @@ def test_straight_flush2():
 def test_straight_flush3():
     cards = ['C9','C10', 'CJ', 'CQ', 'CK']
     assert "Straight Flush" == func(cards)
-    
+
+# Royal flush
+def test_royal_flush_h():
+    cards = ['H10', 'HJ', 'HQ', 'HK', 'HA']
+    assert "Royal Flush" == func(cards)
+def test_royal_flush_d():
+    cards = ['D10', 'DJ', 'DQ', 'DK', 'DA']
+    assert "Royal Flush" == func(cards)
+def test_royal_flush_c():
+    cards = ['C10', 'CJ', 'CQ', 'CK', 'CA']
+    assert "Royal Flush" == func(cards)
+def test_royal_flush_s():
+    cards = ['S10', 'SJ', 'SQ', 'SK', 'SA']
+    assert "Royal Flush" == func(cards)

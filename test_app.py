@@ -1,5 +1,5 @@
 from app import func
 
 def test_highcard():
-    cards = ['H2', 'D3', 'C3', 'S4', 'H6']
+    cards = ['H2', 'D3', 'C4', 'S5', 'H7']
     assert "High Card" == func(cards)

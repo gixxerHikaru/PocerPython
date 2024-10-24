@@ -1,2 +1,2 @@
 def func():
-    return "Hello World!"
+    return "High Card"

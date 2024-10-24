@@ -1,5 +1,5 @@
 from app import func
 
-def test_highcards():
+def test_highcard():
     
-    assert "Hello World!" == func()
+    assert "High Card" == func()

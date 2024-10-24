@@ -82,3 +82,14 @@ def test_full_housh2():
 def test_full_houshA():
     cards = ['H4', 'D4', 'CA', 'SA', 'HA']
     assert "A Full House" == func(cards)
+
+# Four Of A Kind
+def test_four_of_a_kind1():
+    cards = ['H2', 'D2', 'C2', 'S2', 'H7']
+    assert "Four Of A Kind" == func(cards)
+def test_four_of_a_kind2():
+    cards = ['H3', 'D3', 'C3', 'S3', 'H7']
+    assert "Four Of A Kind" == func(cards)
+def test_four_of_a_kindA():
+    cards = ['H2', 'DA', 'CA', 'SA', 'HA']
+    assert "Four Of A Kind" == func(cards)

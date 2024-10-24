@@ -30,3 +30,14 @@ def test_two_pair2():
 def test_two_pairA():
     cards = ['H2', 'D4', 'C4', 'SA', 'HA']
     assert "Two Pair" == func(cards)
+
+# Three Of A Kind
+def test_three_of_a_kind1():
+    cards = ['H2', 'D2', 'C2', 'S5', 'H7']
+    assert "Three Of A Kind" == func(cards)
+def test_three_of_a_kind2():
+    cards = ['H3', 'D3', 'C3', 'S5', 'H7']
+    assert "Three Of A Kind" == func(cards)
+def test_three_of_a_kindA():
+    cards = ['H2', 'D4', 'CA', 'SA', 'HA']
+    assert "Three Of A Kind" == func(cards)

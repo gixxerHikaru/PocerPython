@@ -46,6 +46,13 @@ def func(cards):
             count_A += 1                        
 
     check_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_J, count_Q, count_K, count_A]
+    three_of_count = 0
+    for x in check_list:
+        if(x == 3):
+            three_of_count += 1
+    if(three_of_count == 1):
+        return "Three Of A Kind"
+    
     pair_count = 0
     for x in check_list:
         if(x == 2):

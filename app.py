@@ -63,6 +63,11 @@ def func(cards):
             count_s += 1  
 
     if(count_h == 5 or count_d == 5 or count_c == 5 or count_s == 5):
+        for i in range(len(check_list) - 4):
+            if all(check_list[i + j] == 1 for j in range(5)):
+                return "Straight Flush"
+
+    if(count_h == 5 or count_d == 5 or count_c == 5 or count_s == 5):
         return "Flush"
 
     for i in range(len(check_list) - 4):

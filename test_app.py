@@ -93,3 +93,17 @@ def test_four_of_a_kind2():
 def test_four_of_a_kindA():
     cards = ['H2', 'DA', 'CA', 'SA', 'HA']
     assert "Four Of A Kind" == func(cards)
+
+# Straight Flush
+def test_straight_flush1():
+    cards = ['H2', 'H3', 'H4', 'H5', 'H6']
+    assert "Straight Flush" == func(cards)
+
+def test_straight_flush2():
+    cards = ['D3', 'D4', 'D5', 'D6', 'D7']
+    assert "Straight Flush" == func(cards)
+
+def test_straight_flush3():
+    cards = ['C9','C10', 'CJ', 'CQ', 'CK']
+    assert "Straight Flush" == func(cards)
+    

@@ -73,14 +73,16 @@ def func(cards):
     for x in check_list:
         if(x == 3):
             three_of_count += 1
-    if(three_of_count == 1):
-        return "Three Of A Kind"
+
     
     pair_count = 0
     for x in check_list:
         if(x == 2):
             pair_count += 1
-
+    if(three_of_count == 1 and pair_count == 1):
+        return "A Full House"
+    if(three_of_count == 1):
+        return "Three Of A Kind"
     if(pair_count == 2):
         return "Two Pair"
 

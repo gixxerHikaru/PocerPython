@@ -71,3 +71,14 @@ def test_flush_c():
 def test_flus_s():
     cards = ['S2', 'S3', 'S4', 'S5', 'S7']
     assert "Flush" == func(cards)
+
+#  A Full Housh
+def test_full_housh1():
+    cards = ['H2', 'D2', 'C2', 'S5', 'H5']
+    assert "A Full House" == func(cards)
+def test_full_housh2():
+    cards = ['H3', 'D3', 'C3', 'S7', 'H7']
+    assert "A Full House" == func(cards)
+def test_full_houshA():
+    cards = ['H4', 'D4', 'CA', 'SA', 'HA']
+    assert "A Full House" == func(cards)

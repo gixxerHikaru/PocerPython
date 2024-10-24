@@ -41,3 +41,16 @@ def test_three_of_a_kind2():
 def test_three_of_a_kindA():
     cards = ['H2', 'D4', 'CA', 'SA', 'HA']
     assert "Three Of A Kind" == func(cards)
+
+# Straight
+def test_straight1():
+    cards = ['H2', 'D3', 'C4', 'S5', 'H6']
+    assert "Straight" == func(cards)
+
+def test_straight2():
+    cards = ['H3', 'D4', 'C5', 'S6', 'H7']
+    assert "Straight" == func(cards)
+
+def test_straightA():
+    cards = ['H10', 'DJ', 'CQ', 'SK', 'HA']
+    assert "Straight" == func(cards)

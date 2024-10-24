@@ -46,6 +46,11 @@ def func(cards):
             count_A += 1                        
 
     check_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_J, count_Q, count_K, count_A]
+
+    for i in range(len(check_list) - 4):
+        if all(check_list[i + j] == 1 for j in range(5)):
+            return "Straight" 
+        
     three_of_count = 0
     for x in check_list:
         if(x == 3):

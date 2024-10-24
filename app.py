@@ -45,7 +45,16 @@ def func(cards):
         elif(re.search('A', x)):
             count_A += 1                        
 
-    if(count_2 == 2 or count_3 == 2 or count_4 == 2 or count_5 == 2 or count_6 == 2 or count_7 == 2 or count_8 == 2 or count_9 == 2 or count_10 == 2 or count_J == 2 or count_Q == 2 or count_K == 2 or count_A == 2):
+    check_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_J, count_Q, count_K, count_A]
+    pair_count = 0
+    for x in check_list:
+        if(x == 2):
+            pair_count += 1
+
+    if(pair_count == 2):
+        return "Two Pair"
+
+    if(pair_count == 1):
         return "A Pair"
 
     return "High Card"

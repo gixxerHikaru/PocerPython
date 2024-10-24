@@ -47,6 +47,24 @@ def func(cards):
 
     check_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_J, count_Q, count_K, count_A]
 
+    count_h = 0
+    count_d = 0
+    count_c = 0
+    count_s = 0
+
+    for x in cards:
+        if(re.search('H', x)):
+            count_h += 1
+        elif(re.search('D', x)):
+            count_d += 1
+        elif(re.search('C', x)):
+            count_c += 1
+        elif(re.search('S', x)):
+            count_s += 1  
+
+    if(count_h == 5 or count_d == 5 or count_c == 5 or count_s == 5):
+        return "Flush"
+
     for i in range(len(check_list) - 4):
         if all(check_list[i + j] == 1 for j in range(5)):
             return "Straight" 

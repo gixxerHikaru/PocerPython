@@ -54,3 +54,20 @@ def test_straight2():
 def test_straightA():
     cards = ['H10', 'DJ', 'CQ', 'SK', 'HA']
     assert "Straight" == func(cards)
+
+# flush
+def test_flush_h():
+    cards = ['H2', 'H3', 'H4', 'H5', 'H7']
+    assert "Flush" == func(cards)
+
+def test_flush_d():
+    cards = ['D2', 'D3', 'D4', 'D5', 'D7']
+    assert "Flush" == func(cards)
+
+def test_flush_c():
+    cards = ['C2', 'C3', 'C4', 'C5', 'C7']
+    assert "Flush" == func(cards)
+
+def test_flus_s():
+    cards = ['S2', 'S3', 'S4', 'S5', 'S7']
+    assert "Flush" == func(cards)

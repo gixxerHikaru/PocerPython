@@ -21,19 +21,14 @@ def func(cards):
     if(check_four_of_kind):
         return "Four Of A Kind"
 
-    three_of_count = 0
-    for x in check_number_list:
-        if(x == 3):
-            three_of_count += 1
-
-    
+    check_three_of_count = judge_three_of_count(check_number_list)    
     pair_count = 0
     for x in check_number_list:
         if(x == 2):
             pair_count += 1
-    if(three_of_count and pair_count):
+    if(check_three_of_count and pair_count):
         return "A Full House"
-    if(three_of_count):
+    if(check_three_of_count):
         return "Three Of A Kind"
     if(pair_count == 2):
         return "Two Pair"
@@ -125,3 +120,9 @@ def judge_four_of_kind(check_number_list):
             four_of_count += 1
     if(four_of_count):
         return True    
+
+def judge_three_of_count(check_number_list):
+    for x in check_number_list:
+        if(x == 3):
+            return True
+

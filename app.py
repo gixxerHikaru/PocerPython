@@ -4,23 +4,9 @@ from collections import Counter
 def func(cards):
 
     check_number_list = count_number_status(cards)
+    check_suit_list = count_suit_status(cards)
 
-    count_h = 0
-    count_d = 0
-    count_c = 0
-    count_s = 0
-
-    for x in cards:
-        if(re.search('H', x)):
-            count_h += 1
-        elif(re.search('D', x)):
-            count_d += 1
-        elif(re.search('C', x)):
-            count_c += 1
-        elif(re.search('S', x)):
-            count_s += 1  
-
-    if(count_h == 5 or count_d == 5 or count_c == 5 or count_s == 5):
+    if(check_suit_list[0] == 5 or check_suit_list[1] == 5 or check_suit_list[2] == 5 or check_suit_list[3] == 5):
         for i in range(len(check_number_list) - 4):
             if all(check_number_list[i + j] == 1 for j in range(5)):
                 if(i == 8):
@@ -28,7 +14,7 @@ def func(cards):
                 else:
                     return "Straight Flush"
 
-    if(count_h == 5 or count_d == 5 or count_c == 5 or count_s == 5):
+    if(check_suit_list[0] == 5 or check_suit_list[1] == 5 or check_suit_list[2] == 5 or check_suit_list[3] == 5):
         return "Flush"
 
     for i in range(len(check_number_list) - 4):
@@ -107,3 +93,21 @@ def count_number_status(cards):
         elif(re.search('A', x)):
             count_a += 1
     return [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_j, count_q, count_k, count_a]
+
+def count_suit_status(cards):
+    count_h = 0
+    count_c = 0
+    count_d = 0
+    count_s = 0
+
+    for x in cards:
+        if(re.search('H', x)):
+            count_h += 1
+        elif(re.search('C', x)):
+            count_c += 1
+        elif(re.search('D', x)):
+            count_d += 1
+        elif(re.search('S', x)):
+            count_s += 1
+
+    return [count_h, count_c, count_d, count_s]

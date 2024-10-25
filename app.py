@@ -10,12 +10,10 @@ def func(cards):
     check_straight = judge_straight(check_number_list)
 
     if(check_flush):
-        for i in range(len(check_number_list) - 4):
-            if all(check_number_list[i + j] == 1 for j in range(5)):
-                if(i == 8):
-                    return "Royal Flush"
-                else:
-                    return "Straight Flush"
+        if(check_straight == 2):
+            return "Royal Flush"
+        elif(check_straight == 1):
+            return "Straight Flush"
         return "Flush"
 
     if(check_straight):
@@ -120,4 +118,7 @@ def judge_flush(check_suit_list):
 def judge_straight(check_number_list):
     for i in range(len(check_number_list) - 4):
         if all(check_number_list[i + j] == 1 for j in range(5)):
-            return True 
+            if(i == 8):
+                return 2
+            else:
+                return 1

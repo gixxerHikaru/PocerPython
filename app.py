@@ -6,7 +6,9 @@ def func(cards):
     check_number_list = count_number_status(cards)
     check_suit_list = count_suit_status(cards)
 
-    if(check_suit_list[0] == 5 or check_suit_list[1] == 5 or check_suit_list[2] == 5 or check_suit_list[3] == 5):
+    check_flush = judge_flush(check_suit_list)
+
+    if(check_flush):
         for i in range(len(check_number_list) - 4):
             if all(check_number_list[i + j] == 1 for j in range(5)):
                 if(i == 8):
@@ -109,3 +111,9 @@ def count_suit_status(cards):
             count_s += 1
 
     return [count_h, count_c, count_d, count_s]
+
+def judge_flush(check_suit_list):
+    for x in check_suit_list:
+        if(x == 5):
+            return True
+        

@@ -13,8 +13,6 @@ def func(cards):
                     return "Royal Flush"
                 else:
                     return "Straight Flush"
-
-    if(check_suit_list[0] == 5 or check_suit_list[1] == 5 or check_suit_list[2] == 5 or check_suit_list[3] == 5):
         return "Flush"
 
     for i in range(len(check_number_list) - 4):

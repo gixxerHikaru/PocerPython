@@ -8,22 +8,17 @@ def func(cards):
 
     check_flush = judge_flush(check_suit_list)
     check_straight = judge_straight(check_number_list)
-
     if(check_flush):
         if(check_straight == 2):
             return "Royal Flush"
         elif(check_straight == 1):
             return "Straight Flush"
         return "Flush"
-
     if(check_straight):
         return "Straight"
-        
-    four_of_count = 0
-    for x in check_number_list:
-        if(x == 4):
-            four_of_count += 1
-    if(four_of_count):
+
+    check_four_of_kind = judge_four_of_kind(check_number_list)
+    if(check_four_of_kind):
         return "Four Of A Kind"
 
     three_of_count = 0
@@ -122,3 +117,11 @@ def judge_straight(check_number_list):
                 return 2
             else:
                 return 1
+
+def judge_four_of_kind(check_number_list):
+    four_of_count = 0
+    for x in check_number_list:
+        if(x == 4):
+            four_of_count += 1
+    if(four_of_count):
+        return True    

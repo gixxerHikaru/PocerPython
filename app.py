@@ -7,6 +7,7 @@ def func(cards):
     check_suit_list = count_suit_status(cards)
 
     check_flush = judge_flush(check_suit_list)
+    check_straight = judge_straight(check_number_list)
 
     if(check_flush):
         for i in range(len(check_number_list) - 4):
@@ -17,9 +18,8 @@ def func(cards):
                     return "Straight Flush"
         return "Flush"
 
-    for i in range(len(check_number_list) - 4):
-        if all(check_number_list[i + j] == 1 for j in range(5)):
-            return "Straight" 
+    if(check_straight):
+        return "Straight"
         
     four_of_count = 0
     for x in check_number_list:
@@ -116,4 +116,8 @@ def judge_flush(check_suit_list):
     for x in check_suit_list:
         if(x == 5):
             return True
-        
+
+def judge_straight(check_number_list):
+    for i in range(len(check_number_list) - 4):
+        if all(check_number_list[i + j] == 1 for j in range(5)):
+            return True 

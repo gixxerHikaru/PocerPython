@@ -51,34 +51,13 @@ def count_number_status(cards):
 
     count_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9,
                    count_10, count_j, count_q, count_k, count_a]
+    number_list = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
+    # cardsのnumberを数える
     for x in cards:
-        if(re.search('2', x)):
-            count_list[0] += 1
-        elif(re.search('3', x)):
-            count_list[1] += 1
-        elif(re.search('4', x)):
-            count_list[2] += 1
-        elif(re.search('5', x)):
-            count_list[3] += 1            
-        elif(re.search('6', x)):
-            count_list[4] += 1
-        elif(re.search('7', x)):
-            count_list[5] += 1
-        elif(re.search('8', x)):
-            count_list[6] += 1
-        elif(re.search('9', x)):
-            count_list[7] += 1
-        elif(re.search('10', x)):
-            count_list[8] += 1
-        elif(re.search('J', x)):
-            count_list[9] += 1
-        elif(re.search('Q', x)):
-            count_list[10] += 1
-        elif(re.search('K', x)):
-            count_list[11] += 1
-        elif(re.search('A', x)):
-            count_list[12] += 1
+        for y in range(len(number_list)):
+            if(re.search(number_list[y], x)):
+                count_list[y] += 1
 
     return count_list
 

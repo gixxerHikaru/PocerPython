@@ -3,11 +3,10 @@ from collections import Counter
 
 def func(cards):
 
-    check_number_list = count_number_status(cards)
-    check_suit_list = count_suit_status(cards)
+    check_list = [count_number_status(cards), count_suit_status(cards)]
 
-    check_flush = judge_flush(check_suit_list)
-    check_straight = judge_straight(check_number_list)
+    check_flush = judge_flush(check_list[1])
+    check_straight = judge_straight(check_list[0])
     if(check_flush):
         if(check_straight == 2):
             return "Royal Flush"
@@ -17,12 +16,12 @@ def func(cards):
     if(check_straight):
         return "Straight"
 
-    check_four_of_kind = judge_four_of_kind(check_number_list)
+    check_four_of_kind = judge_four_of_kind(check_list[0])
     if(check_four_of_kind):
         return "Four Of A Kind"
 
-    check_three_of_count = judge_three_of_count(check_number_list)
-    pair_count = count_pair(check_number_list)
+    check_three_of_count = judge_three_of_count(check_list[0])
+    pair_count = count_pair(check_list[0])
     if(check_three_of_count and pair_count):
         return "A Full House"
     if(check_three_of_count):

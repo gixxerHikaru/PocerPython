@@ -89,16 +89,13 @@ def count_suit_status(cards):
     count_s = 0
 
     count_list = [count_h, count_c, count_d, count_s]
+    suit_list = ['H', 'C', 'D', 'S']
 
+    # cardsのsuitを数える
     for x in cards:
-        if(re.search('H', x)):
-            count_list[0] += 1
-        elif(re.search('C', x)):
-            count_list[1] += 1
-        elif(re.search('D', x)):
-            count_list[2] += 1
-        elif(re.search('S', x)):
-            count_list[3] += 1
+        for y in range(len(suit_list)):
+            if(re.search(suit_list[y], x)):
+                count_list[y] += 1
 
     return count_list
 

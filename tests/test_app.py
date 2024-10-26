@@ -1,4 +1,4 @@
-from app import func
+from pocer.app import func
 # テスト使い方
 # 全通し pytest test_app.py
 # クラス実行 pytest test_app.py::TestHighCard

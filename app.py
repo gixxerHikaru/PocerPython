@@ -3,7 +3,7 @@ from collections import Counter
 
 def func(cards):
 
-    check_list = [count_number_status(cards), count_suit_status(cards)]
+    check_list = count_status(cards)
 
     check_flush = judge_flush(check_list[1])
     check_straight = judge_straight(check_list[0])
@@ -33,49 +33,29 @@ def func(cards):
 
     return "High Card"
 
-def count_number_status(cards):
-    count_2 = 0
-    count_3 = 0
-    count_4 = 0
-    count_5 = 0
-    count_6 = 0
-    count_7 = 0
-    count_8 = 0
-    count_9 = 0
-    count_10 = 0
-    count_j = 0
-    count_q = 0
-    count_k = 0
-    count_a = 0
+def count_status(cards):
 
-    count_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9,
-                   count_10, count_j, count_q, count_k, count_a]
+    # 2~10,J,Q,K,Aの順でカードの枚数を確保するリスト
+    count_number_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     number_list = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
-    # cardsのnumberを数える
-    for x in cards:
-        for y in range(len(number_list)):
-            if(re.search(number_list[y], x)):
-                count_list[y] += 1
-
-    return count_list
-
-def count_suit_status(cards):
-    count_h = 0
-    count_c = 0
-    count_d = 0
-    count_s = 0
-
-    count_list = [count_h, count_c, count_d, count_s]
+    # H,C,D,Sの順でカードの枚数を確保するリスト
+    count_suit_list = [0, 0, 0, 0]
     suit_list = ['H', 'C', 'D', 'S']
 
-    # cardsのsuitを数える
+    # cardsのnumberとsuitを数える
     for x in cards:
-        for y in range(len(suit_list)):
-            if(re.search(suit_list[y], x)):
-                count_list[y] += 1
+        # cardのnumberを数える
+        search_card(x, number_list, count_number_list)
+        # cardのsuitを数える
+        search_card(x, suit_list, count_suit_list)
 
-    return count_list
+    return [count_number_list , count_suit_list]
+
+def search_card(card, list, count_list):
+    for i in range(len(list)):
+        if(re.search(list[i], card)):
+            count_list[i] += 1
 
 def judge_flush(check_suit_list):
     for x in check_suit_list:

@@ -49,34 +49,38 @@ def count_number_status(cards):
     count_k = 0
     count_a = 0
 
+    count_list = [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9,
+                   count_10, count_j, count_q, count_k, count_a]
+
     for x in cards:
         if(re.search('2', x)):
-            count_2 += 1
+            count_list[0] += 1
         elif(re.search('3', x)):
-            count_3 += 1
+            count_list[1] += 1
         elif(re.search('4', x)):
-            count_4 += 1
+            count_list[2] += 1
         elif(re.search('5', x)):
-            count_5 += 1            
+            count_list[3] += 1            
         elif(re.search('6', x)):
-            count_6 += 1
+            count_list[4] += 1
         elif(re.search('7', x)):
-            count_7 += 1
+            count_list[5] += 1
         elif(re.search('8', x)):
-            count_8 += 1
+            count_list[6] += 1
         elif(re.search('9', x)):
-            count_9 += 1
+            count_list[7] += 1
         elif(re.search('10', x)):
-            count_10 += 1
+            count_list[8] += 1
         elif(re.search('J', x)):
-            count_j += 1
+            count_list[9] += 1
         elif(re.search('Q', x)):
-            count_q += 1
+            count_list[10] += 1
         elif(re.search('K', x)):
-            count_k += 1
+            count_list[11] += 1
         elif(re.search('A', x)):
-            count_a += 1
-    return [count_2, count_3, count_4, count_5, count_6, count_7, count_8, count_9, count_10, count_j, count_q, count_k, count_a]
+            count_list[12] += 1
+
+    return count_list
 
 def count_suit_status(cards):
     count_h = 0
@@ -84,17 +88,19 @@ def count_suit_status(cards):
     count_d = 0
     count_s = 0
 
+    count_list = [count_h, count_c, count_d, count_s]
+
     for x in cards:
         if(re.search('H', x)):
-            count_h += 1
+            count_list[0] += 1
         elif(re.search('C', x)):
-            count_c += 1
+            count_list[1] += 1
         elif(re.search('D', x)):
-            count_d += 1
+            count_list[2] += 1
         elif(re.search('S', x)):
-            count_s += 1
+            count_list[3] += 1
 
-    return [count_h, count_c, count_d, count_s]
+    return count_list
 
 def judge_flush(check_suit_list):
     for x in check_suit_list:

@@ -1,12 +1,19 @@
 #!/usr/bin/env python
 
 
-import pocer
+import distribution, app
 
 
 def __init__():
     # sample パッケージを使った処理
-    print("Hello World!")
+    print("あなたの手札は、、、")
+    cards = distribution.func()
+    print(cards)
+
+    print("")
+    print("手札の役は")
+    print(app.func(cards))
+    print("")
 
 
 if __name__ == '__main__':

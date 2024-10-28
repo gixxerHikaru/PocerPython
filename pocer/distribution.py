@@ -8,8 +8,7 @@ def func():
             'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ', 'SK', 'SA',]
     
     hands = list(set(deck))
-    print(hands[0], hands[1], hands[2], hands[3], hands[4])
-    return hands
+    return [hands[0], hands[1], hands[2], hands[3], hands[4]]
 
 if __name__ == '__main__':
     func()

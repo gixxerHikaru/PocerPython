@@ -1,7 +1,7 @@
-from pocer.app import func
+from pocer.judge import func
 # テスト使い方
-# 全通し pytest test_app.py
-# クラス実行 pytest test_app.py::TestHighCard
+# 全通し pytest test_judge.py
+# クラス実行 pytest test_judge.py::TestHighCard
 
 
 # High Card

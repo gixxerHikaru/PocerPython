@@ -1,6 +1,6 @@
 import re
 from collections import Counter
-from pocer.app import count_status
+from common.common import count_status
 
 def func(cards):
 

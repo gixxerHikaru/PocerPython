@@ -92,6 +92,91 @@ class TestNotIncludeA():
         cards = ['DJ', 'SJ']
         assert "20" == func(cards)
 
+# Include A
+class TestIncludeA():
+    class TestOverA():
+        class TestMultipleA():
+            def test_double(self):
+                cards = ['HA', 'CA']
+                assert "12" == func(cards)
+            
+            def test_triple(self):
+                cards = ['HA', 'CA', 'DA']
+                assert "13" == func(cards)
+            
+            def test_all(self):
+                cards = ['HA', 'CA', 'DA', 'SA']
+                assert "14" == func(cards)            
+            
+        def test_13(self):
+            cards = ['H10', 'C2', 'HA']
+            assert "13" == func(cards)
+        
+        def test_14(self):
+            cards = ['H9', 'C4', 'DA']
+            assert "14" == func(cards)
+
+        def test_15(self):
+            cards = ['D8', 'S6', 'CA']
+            assert "15" == func(cards)
+
+        def test_16(self):
+            cards = ['H8', 'C7', 'SA']
+            assert "16" == func(cards)
+
+        def test_17(self):
+            cards = ['C8', 'C8', 'CA']
+            assert "17" == func(cards)
+
+        def test_18(self):
+            cards = ['H7', 'C7', 'D3', 'SA']
+            assert "18" == func(cards)
+
+        def test_19(self):
+            cards = ['D2', 'S2', 'C2', 'H2', 'D3', 'S3', 'C4', 'SA']
+            assert "19" == func(cards)
+
+        def test_20(self):
+            cards = ['D2', 'S2', 'C2', 'H2', 'D3', 'S4', 'C4', 'SA']
+            assert "20" == func(cards)
+
+        def test_21(self):
+            cards = ['D2', 'S2', 'C2', 'H2', 'D3', 'S3', 'C3', 'H3' ,'SA']
+            assert "21" == func(cards)
+
+
+    def test_13(self):
+        cards = ['CA', 'C2']
+        assert "13" == func(cards)
+
+    def test_14(self):
+        cards = ['HA', 'C3']
+        assert "14" == func(cards)
+
+    def test_15(self):
+        cards = ['DA', 'S4']
+        assert "15" == func(cards)
+
+    def test_16(self):
+        cards = ['HA', 'C5']
+        assert "16" == func(cards)
+
+    def test_17(self):
+        cards = ['CA', 'C6']
+        assert "17" == func(cards)
+
+    def test_18(self):
+        cards = ['HA', 'C7']
+        assert "18" == func(cards)
+
+    def test_19(self):
+        cards = ['DA', 'S8']
+        assert "19" == func(cards)
+
+    def test_20(self):
+        cards = ['DA', 'S9']
+        assert "20" == func(cards)
+
 # Lose
 class TestLose:
     def test_22(self):

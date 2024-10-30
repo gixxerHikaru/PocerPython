@@ -192,4 +192,5 @@ class TestLose:
         assert "You Lose..." == func(cards)
 
     def test_25(self):
-        cards = ['D4', 'S5', 'C6', 'HK']        assert "You Lose..." == func(cards) 
+        cards = ['D4', 'S5', 'C6', 'HK']        
+        assert "You Lose..." == func(cards) 

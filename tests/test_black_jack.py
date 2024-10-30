@@ -99,13 +99,12 @@ class TestLose:
         assert "You Lose..." == func(cards)
 
     def test_23(self):
-        cards = ['CA', 'C9', 'C4']
+        cards = ['CQ', 'C9', 'C4']
         assert "You Lose..." == func(cards)
 
     def test_24(self):
-        cards = ['HA', 'C8', 'D5', 'SA']
+        cards = ['HJ', 'C8', 'D6']
         assert "You Lose..." == func(cards)
 
     def test_25(self):
-        cards = ['D4', 'S10', 'HA']
-        assert "You Lose..." == func(cards) 
+        cards = ['D4', 'S5', 'C6', 'HK']        assert "You Lose..." == func(cards) 

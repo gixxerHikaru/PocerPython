@@ -96,17 +96,38 @@ class TestNotIncludeA():
 class TestIncludeA():
     class TestOverA():
         class TestMultipleA():
-            def test_double(self):
-                cards = ['HA', 'CA']
-                assert "12" == func(cards)
-            
-            def test_triple(self):
-                cards = ['HA', 'CA', 'DA']
-                assert "13" == func(cards)
-            
-            def test_all(self):
-                cards = ['HA', 'CA', 'DA', 'SA']
-                assert "14" == func(cards)            
+            class TestNotOverProcess():
+                def test_double(self):
+                    cards = ['HA', 'CA']
+                    assert "12" == func(cards)
+
+                def test_double_14(self):
+                    cards = ['HA', 'CA', 'D2']
+                    assert "14" == func(cards)                
+                
+                def test_triple(self):
+                    cards = ['HA', 'CA', 'DA']
+                    assert "13" == func(cards)
+
+                def test_triple_15(self):
+                    cards = ['HA', 'CA', 'DA', 'D2']
+                    assert "15" == func(cards)
+
+                def test_triple_20(self):
+                    cards = ['HA', 'CA', 'DA', 'D7']
+                    assert "20" == func(cards)                
+                
+                def test_all(self):
+                    cards = ['HA', 'CA', 'DA', 'SA']
+                    assert "14" == func(cards)
+
+                def test_all_16(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'S2']
+                    assert "16" == func(cards)
+
+                def test_all_12(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'D8']
+                    assert "12" == func(cards)                            
             
         def test_13(self):
             cards = ['H10', 'C2', 'HA']

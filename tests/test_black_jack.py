@@ -103,8 +103,8 @@ class TestIncludeA():
 
                 def test_double_14(self):
                     cards = ['HA', 'CA', 'D2']
-                    assert "14" == func(cards)                
-                
+                    assert "14" == func(cards)
+                                
                 def test_triple(self):
                     cards = ['HA', 'CA', 'DA']
                     assert "13" == func(cards)
@@ -115,7 +115,11 @@ class TestIncludeA():
 
                 def test_triple_20(self):
                     cards = ['HA', 'CA', 'DA', 'D7']
-                    assert "20" == func(cards)                
+                    assert "20" == func(cards)
+
+                def test_triple_21(self):
+                    cards = ['HA', 'CA', 'DA', 'D8']
+                    assert "21" == func(cards)                                    
                 
                 def test_all(self):
                     cards = ['HA', 'CA', 'DA', 'SA']
@@ -142,7 +146,7 @@ class TestIncludeA():
                     cards = ['HA', 'CA', 'DA', 'D7', 'D2']
                     assert "12" == func(cards)
 
-                def test_triple_23to13(self):
+                def test_triple_22to13(self):
                     cards = ['HA', 'CA', 'DA', 'D2', 'D8']
                     assert "13" == func(cards)
 

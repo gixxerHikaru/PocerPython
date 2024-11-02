@@ -125,9 +125,38 @@ class TestIncludeA():
                     cards = ['HA', 'CA', 'DA', 'SA', 'S2']
                     assert "16" == func(cards)
 
-                def test_all_12(self):
-                    cards = ['HA', 'CA', 'DA', 'SA', 'D8']
-                    assert "12" == func(cards)                            
+                def test_all_21(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'S7']
+                    assert "21" == func(cards)
+
+            class TestOverProcess():
+                def test_double_22to14(self):
+                    cards = ['HA', 'CA', 'DQ']
+                    assert "12" == func(cards)
+
+                def test_double_31to21(self):
+                    cards = ['HA', 'CA', 'D2', 'S6', 'SA']
+                    assert "21" == func(cards)                
+                
+                def test_triple_22to12(self):
+                    cards = ['HA', 'CA', 'DA', 'D7', 'D2']
+                    assert "12" == func(cards)
+
+                def test_triple_23to13(self):
+                    cards = ['HA', 'CA', 'DA', 'D2', 'D8']
+                    assert "13" == func(cards)
+
+                def test_all_22to12(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'S8']
+                    assert "12" == func(cards)
+
+                def test_all_23to13(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'S2', 'D7']
+                    assert "13" == func(cards)
+
+                def test_all_24to14(self):
+                    cards = ['HA', 'CA', 'DA', 'SA', 'DK']
+                    assert "14" == func(cards)                            
             
         def test_13(self):
             cards = ['H10', 'C2', 'HA']

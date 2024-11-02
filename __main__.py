@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 
-import distribution, app
+import pocer.app as app
+import pocer.distribution as distribution
 
 
 def __init__():

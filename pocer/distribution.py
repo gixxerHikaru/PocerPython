@@ -7,8 +7,9 @@ def func():
             'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10', 'DJ', 'DQ', 'DK', 'DA',
             'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10', 'SJ', 'SQ', 'SK', 'SA',]
     
-    hands = list(set(deck))
+    hands = random.sample(deck, 5)
     return [hands[0], hands[1], hands[2], hands[3], hands[4]]
 
 if __name__ == '__main__':
     func()
+    

@@ -57,13 +57,30 @@ class TestNumberCheck:
 # Not Same Check
 class TestNotSame:
     def test_not_same(self):
-        assert func()[0] != func()[1] != func()[2] != func()[3] != func()[4]
+        assert len(func()) == len(set(func()))
 
     def test_not_same_loop(self):
         for i in range(300):
-            assert func()[0] != func()[1] != func()[2] != func()[3] != func()[4]
+            assert len(func()) == len(set(func()))
 
 # Not Empty
 class TestNotEmpty:
-    def test_not_empty(self):
-        assert func()[0] != func()[1] != func()[2] != func()[3] != func()[4] != ""
+    def test_one(self):
+        for i in range(50):
+            assert "" != func()[0]
+
+    def test_second(self):
+        for i in range(50):
+            assert "" != func()[1]
+
+    def test_third(self):
+        for i in range(50):
+            assert "" != func()[2]
+
+    def test_fourth(self):
+        for i in range(50):
+            assert "" != func()[3]
+
+    def test_fifth(self):
+        for i in range(50):
+            assert "" != func()[4]

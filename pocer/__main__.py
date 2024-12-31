@@ -1,20 +1,15 @@
 #!/usr/bin/env python
 
 
-import distribution, app
-
+import game
+import time
 
 def __init__():
-    # sample パッケージを使った処理
-    print("あなたの手札は、、、")
-    cards = distribution.func()
-    print(cards)
+    # ポーカー・ジャッジゲーム
+    score = 0
+    score += game.func()
 
-    print("")
-    print("手札の役は")
-    print(app.func(cards))
-    print("")
-
+    print("Total Score:" + str(score))
 
 if __name__ == '__main__':
     __init__()

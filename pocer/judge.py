@@ -1,23 +1,24 @@
 
 def func(judge, time):
-    if(judge == "Royal Flush"):
+    if(judge == 10):
         return 10 * int(time)
-    elif(judge == "Straight Flush"):
+    elif(judge == 9):
         return 9 * int(time)
-    elif(judge == "Four Of A Kind"):
+    elif(judge == 8):
         return 8 * int(time)
-    elif(judge == "A Full House"):
+    elif(judge == 7):
         return 7 * int(time)
-    elif(judge == "Flush"):
+    elif(judge == 6):
         return 6 * int(time)
-    elif(judge == "Straight"):
+    elif(judge == 5):
         return 5 * int(time)
-    elif(judge == "Three Of A Kind"):
+    elif(judge == 4):
         return 4 * int(time)
-    elif(judge == "Two Pair"):
+    elif(judge == 3):
         return 3 * int(time)
-    elif(judge == "A Pair"):
+    elif(judge == 2):
         return 2 * int(time)
-    elif(judge == "High Card"):
+    elif(judge == 1):
         return 1 * int(time)
-    return 0
+    else:
+        return 0

@@ -7,24 +7,11 @@ import time
 def __init__():
     # ポーカー・ジャッジゲーム
     score = []
-    score.append(game.func())
-    time.sleep(1)
-    print("NextGame")
-    time.sleep(1)
-    score.append(game.func())
-    time.sleep(1)
-    print("NextGame")
-    time.sleep(1)
-    score.append(game.func())
-    time.sleep(1)
-    print("NextGame")
-    time.sleep(1)
-    score.append(game.func())
-    time.sleep(1)
-    print("NextGame")
-    time.sleep(1)
-    score.append(game.func())
-    
+    for i in range(5):
+        if(i != 0):
+            print("NextGame")
+        time.sleep(1)
+        score.append(game.func())
     
     print("Total Score:" + str(score) + " = " + str(sum(score)))
 

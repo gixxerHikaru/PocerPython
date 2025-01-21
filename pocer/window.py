@@ -1,5 +1,6 @@
 import sys, random
 import pygame
+import distribution, reference_card
 from pygame.locals import *
 # ゲーム画面を初期化 --- (*1)
 pygame.init()
@@ -7,6 +8,7 @@ screen = pygame.display.set_mode((600, 400))
 white = (255,255,255)
 black = (0,0,0)
 font = pygame.font.Font(None, 55)   
+card_font = pygame.font.Font(None, 25)   
 title = font.render("Pocer Quiz", True, white)
 SIMPLE_IMAGE_PATH = "/Users/sakuraiyuuki/Documents/GitHub/PocerPython/pocer/image/cards/card_back.png"
 card_back = pygame.image.load(SIMPLE_IMAGE_PATH)
@@ -46,7 +48,36 @@ while running:
          screen.blit(font.render("1", True, white), [300, 200])
          pygame.display.update()
          pygame.time.wait(1000)
+         # 手札表示
          screen.fill(black) # 背景を黒で塗りつぶす
+         pygame.draw.rect(screen, (0,125,125), pygame.Rect(100, 50, 400, 300))
+
+         card = distribution.func()
+
+         cards = []
+         for i in range(5):
+             card_path = reference_card.func(card[i])
+             card_image = pygame.image.load(card_path)
+             card_image = pygame.transform.scale(card_image, (68.25, 100))
+             cards.append(card_image)
+         card_height = 60
+         card_positions = [(120, card_height), (190, card_height), (260, card_height),
+                            (330, card_height), (400, card_height)]
+         
+         answer_x = 130
+         answer_y = 160
+         answer_positions = [(answer_x, answer_y), (answer_x + 200, answer_y),
+                             (answer_x, answer_y + 40), (answer_x + 200, answer_y + 40),
+                             (answer_x, answer_y + 80), (answer_x + 200, answer_y + 80),
+                             (answer_x, answer_y + 120), (answer_x + 200, answer_y + 120),
+                             (answer_x, answer_y + 160), (answer_x + 200, answer_y + 160),]
+        
+         # カードの表示
+         for i in range(5):
+             screen.blit(cards[i], card_positions[i])
+
+         pygame.display.update()
+         pygame.time.wait(5000)
          start_screen = True
          next_screen = False
 

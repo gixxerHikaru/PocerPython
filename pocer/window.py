@@ -101,7 +101,7 @@ while running:
                         print(f"{i+1} button was pressed")
                         answer_number = i + 1
 
-         # 手札表示
+         # 回答表示
          screen.fill(black) # 背景を黒で塗りつぶす
          pygame.draw.rect(screen, (0,125,125), pygame.Rect(100, 50, 400, 320))
          screen.blit(button_font.render("Your Answer is ", True, white), [150, 100])

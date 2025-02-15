@@ -1,6 +1,6 @@
 import sys, random
 import pygame
-import distribution, reference_card, app
+import distribution, reference_card, app, conversion
 from pygame.locals import *
 # ゲーム画面を初期化 --- (*1)
 pygame.init()
@@ -72,43 +72,40 @@ while running:
                              (answer_x, answer_y + 120), (answer_x + 200, answer_y + 120),
                              (answer_x, answer_y + 160), (answer_x + 200, answer_y + 160),]
          answer_button_font = pygame.font.Font(None, 25)
-         for i in range(10):
-              answer_button = pygame.Rect(answer_positions[i][0], answer_positions[i][1], 120, 20)
-              pygame.draw.rect(screen, (100, 0, 250), answer_button)
+         answer_texts = ["High Card", "A Pair", "Two Pair", "Three Of A Kind", "Straight",
+                "Flush", "A Full House", "Four Of A Kind", "Straight Flush", "Royal Flush"]
+         answer_buttons = []  # ボタンオブジェクトを格納するリスト
 
-         answer_button1 = answer_button_font.render("Royal Flush", True, white)
-         answer_button2 = answer_button_font.render("Straight Flush", True, white)
-         answer_button3 = answer_button_font.render("Four Of A Kind", True, white)
-         answer_button4 = answer_button_font.render("A Full House", True, white)
-         answer_button5 = answer_button_font.render("Flush", True, white)
-         answer_button6 = answer_button_font.render("Straight", True, white)
-         answer_button7 = answer_button_font.render("Three Of A Kind", True, white)
-         answer_button8 = answer_button_font.render("Two Pair", True, white)
-         answer_button9 = answer_button_font.render("A Pair", True, white)
-         answer_button10 = answer_button_font.render("High Card", True, white)         
-         screen.blit(answer_button1, answer_positions[0])
-         screen.blit(answer_button2, answer_positions[1])
-         screen.blit(answer_button3, answer_positions[2])
-         screen.blit(answer_button4, answer_positions[3])
-         screen.blit(answer_button5, answer_positions[4])
-         screen.blit(answer_button6, answer_positions[5])
-         screen.blit(answer_button7, answer_positions[6])
-         screen.blit(answer_button8, answer_positions[7])
-         screen.blit(answer_button9, answer_positions[8])
-         screen.blit(answer_button10, answer_positions[9])
+         for i in range(10):
+            answer_button = pygame.Rect(answer_positions[i][0], answer_positions[i][1], 120, 20)
+            pygame.draw.rect(screen, (100, 0, 250), answer_button)
+            answer_buttons.append(answer_button)  # ボタンオブジェクトをリストに追加
+
+            answer_text = answer_button_font.render(answer_texts[i], True, white)
+            screen.blit(answer_text, answer_positions[i])
         
          # カードの表示
          for i in range(5):
              screen.blit(cards[i], card_positions[i])
-
+         answer_number = 0
          pygame.display.update()
          pygame.time.wait(5000)
+
+         for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for i, answer_button in enumerate(answer_buttons):  # 各ボタンについて判定
+                    if answer_button.collidepoint(event.pos):
+                        print(f"{i+1} button was pressed")
+                        answer_number = i + 1
 
          # 手札表示
          screen.fill(black) # 背景を黒で塗りつぶす
          pygame.draw.rect(screen, (0,125,125), pygame.Rect(100, 50, 400, 320))
          screen.blit(button_font.render("Your Answer is ", True, white), [150, 100])
-         screen.blit(font.render("XXXX ", True, white), [200, 150])
+         screen.blit(font.render(conversion.func(answer_number), True, white), [200, 150])
          pygame.display.update()
          pygame.time.wait(3000)
          screen.blit(button_font.render("Answer is ", True, white), [150, 200])

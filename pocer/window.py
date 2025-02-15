@@ -122,6 +122,11 @@ while running:
             screen.blit(font.render("Right!!!", True, black), [200, 100])
          else:
             screen.blit(font.render("False...", True, black), [200, 100])
+            answer_number = 0
+         pygame.display.update()
+         pygame.time.wait(3000)
+         screen.blit(button_font.render("Your Score is", True, black), [200, 200])
+         screen.blit(font.render(str(answer_number), True, black), [350, 190])           
          pygame.display.update()
          pygame.time.wait(5000)           
          start_screen = True

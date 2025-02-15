@@ -115,7 +115,6 @@ while running:
          pygame.display.update()
          pygame.time.wait(3000)
          # 回答確認
-        #  your_answer_text = conversion.func(answer_number)
          card_answer_text = app.func(card)
          answer_display = pygame.Rect(150, 80, 300, 250)
          pygame.draw.rect(screen, (100, 0, 250), answer_display)

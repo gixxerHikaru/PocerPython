@@ -91,6 +91,7 @@ while running:
          pygame.display.update()
          pygame.time.wait(5000)
 
+         your_answer_text = None
          for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
@@ -100,6 +101,7 @@ while running:
                     if answer_button.collidepoint(event.pos):
                         print(f"{i+1} button was pressed")
                         answer_number = i + 1
+                        your_answer_text = answer_texts[i]
 
          # 回答表示
          screen.fill(black) # 背景を黒で塗りつぶす
@@ -111,7 +113,18 @@ while running:
          screen.blit(button_font.render("Answer is ", True, white), [150, 200])
          screen.blit(font.render(app.func(card), True, white), [200, 250])
          pygame.display.update()
-         pygame.time.wait(5000)
+         pygame.time.wait(3000)
+         # 回答確認
+        #  your_answer_text = conversion.func(answer_number)
+         card_answer_text = app.func(card)
+         answer_display = pygame.Rect(150, 80, 300, 250)
+         pygame.draw.rect(screen, (100, 0, 250), answer_display)
+         if your_answer_text == card_answer_text:
+            screen.blit(font.render("Right!!!", True, black), [200, 100])
+         else:
+            screen.blit(font.render("False...", True, black), [200, 100])
+         pygame.display.update()
+         pygame.time.wait(5000)           
          start_screen = True
          next_screen = False
 

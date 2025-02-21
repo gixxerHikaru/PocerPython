@@ -16,23 +16,14 @@ card_back = pygame.transform.scale(card_back, (68.25,100))
 button = pygame.Rect(265, 260, 80, 40)
 button_font = pygame.font.Font(None, 30)
 start_button = button_font.render("Start!!", True, white)
+answer_display = pygame.Rect(150, 80, 300, 250)
+round_display = pygame.Rect(150, 80, 300, 100)
 # 繰り返し画面を描画 --- (*2)
 running = True
 start_screen = True
 next_screen = False
-while running:
-    if start_screen:
-        # 背景と円を描画 --- (*3)
-        screen.fill(black) # 背景を黒で塗りつぶす
-        pygame.draw.circle(screen, (0,125,125), (300,200), 150) # 円を描画
-        screen.blit(title, [200, 100])
-        screen.blit(card_back, [200, 150])
-        screen.blit(card_back, [270, 150])
-        screen.blit(card_back, [340, 150])
-        pygame.draw.rect(screen, (100, 0, 250), button)
-        screen.blit(start_button, [270, 270])
-        # 画面を更新 --- (*4)
-    if next_screen:
+
+def quiz():
         screen.fill(black) # 背景を黒で塗りつぶす
         pygame.draw.circle(screen, (0,125,125), (300,200), 150) # 円を描画
         screen.blit(font.render("3", True, white), [300, 200])
@@ -109,14 +100,13 @@ while running:
         screen.blit(button_font.render("Your Answer is ", True, white), [150, 100])
         screen.blit(font.render(conversion.func(answer_number), True, white), [200, 150])
         pygame.display.update()
-        pygame.time.wait(3000)
+        pygame.time.wait(2000)
         screen.blit(button_font.render("Answer is ", True, white), [150, 200])
         screen.blit(font.render(app.func(card), True, white), [200, 250])
         pygame.display.update()
-        pygame.time.wait(3000)
+        pygame.time.wait(2000)
         # 回答確認
         card_answer_text = app.func(card)
-        answer_display = pygame.Rect(150, 80, 300, 250)
         pygame.draw.rect(screen, (100, 0, 250), answer_display)
         if your_answer_text == card_answer_text:
             screen.blit(font.render("Right!!!", True, black), [200, 100])
@@ -124,11 +114,49 @@ while running:
             screen.blit(font.render("False...", True, black), [200, 100])
             answer_number = 0
         pygame.display.update()
-        pygame.time.wait(3000)
+        pygame.time.wait(1000)
         screen.blit(button_font.render("Your Score is", True, black), [200, 200])
-        screen.blit(font.render(str(answer_number), True, black), [350, 190])           
+        score = answer_number
+        screen.blit(font.render(str(score), True, black), [350, 190])           
         pygame.display.update()
-        pygame.time.wait(5000)           
+        pygame.time.wait(3000)           
+        return score
+
+while running:
+    if start_screen:
+        # 背景と円を描画 --- (*3)
+        screen.fill(black) # 背景を黒で塗りつぶす
+        pygame.draw.circle(screen, (0,125,125), (300,200), 150) # 円を描画
+        screen.blit(title, [200, 100])
+        screen.blit(card_back, [200, 150])
+        screen.blit(card_back, [270, 150])
+        screen.blit(card_back, [340, 150])
+        pygame.draw.rect(screen, (100, 0, 250), button)
+        screen.blit(start_button, [270, 270])
+        # 画面を更新 --- (*4)
+    if next_screen:
+        sentence = ["Round1", "Round2", "Round3"]
+        scores = []
+        for i in sentence:
+            screen.fill(black) # 背景を黒で塗りつぶす
+            pygame.draw.rect(screen, (100, 0, 250), round_display)
+            screen.blit(font.render(i, True, white), [200, 100])
+            pygame.display.update()
+            pygame.time.wait(2000)
+            scores.append(quiz())
+        # 得点表示
+        screen.fill(black)
+        pygame.draw.rect(screen, (100, 0, 250), answer_display)
+        screen.blit(font.render("Total Score is...", True, white), [150, 100])
+        screen.blit(font.render(str(scores[0]), True, white), [200, 130])
+        screen.blit(font.render(str(scores[1]), True, white), [200, 160])
+        screen.blit(font.render(str(scores[2]), True, white), [200, 190])
+        pygame.display.update()
+        pygame.time.wait(2000)
+        screen.blit(font.render("Total:" + str(scores[0]+scores[1]+scores[2]), True, white), [150, 220])
+        pygame.display.update()
+        pygame.time.wait(3000)
+
         start_screen = True
         next_screen = False
 

@@ -151,7 +151,7 @@ def quiz():
         screen.blit(font.render(str(score), True, black), [350, 140])
         screen.blit(font.render("x", True, black), [350, 170])
         screen.blit(font30.render("Remaining Time is", True, black), [150, 210])
-        answer_time = (wait_finish_time - wait_start_time)*0.001
+        answer_time = (wait_time - (wait_finish_time - wait_start_time))*0.001
         screen.blit(font.render(str(format(answer_time, '.3f')), True, black), [350, 200])
         pygame.display.update()
         pygame.time.wait(1000)

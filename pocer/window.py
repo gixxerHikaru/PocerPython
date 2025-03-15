@@ -1,4 +1,4 @@
-import sys, random
+import sys
 import pygame
 import distribution, reference_card, app, conversion
 from pygame.locals import *

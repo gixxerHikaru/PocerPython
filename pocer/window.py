@@ -142,20 +142,20 @@ while running:
             pygame.draw.rect(screen, (100, 0, 250), round_display)
             screen.blit(font.render(i, True, white), [200, 100])
             pygame.display.update()
-            pygame.time.wait(2000)
+            pygame.time.wait(1000)
             scores.append(quiz())
         # 得点表示
         screen.fill(black)
         pygame.draw.rect(screen, (100, 0, 250), answer_display)
         screen.blit(font.render("Total Score is...", True, white), [150, 100])
-        screen.blit(font.render(str(scores[0]), True, white), [200, 130])
-        screen.blit(font.render(str(scores[1]), True, white), [200, 160])
-        screen.blit(font.render(str(scores[2]), True, white), [200, 190])
+        screen.blit(font.render("Round1: " + str(scores[0]), True, white), [150, 130])
+        screen.blit(font.render("Round2: " + str(scores[1]), True, white), [150, 160])
+        screen.blit(font.render("Round3: " + str(scores[2]), True, white), [150, 190])
+        pygame.display.update()
+        pygame.time.wait(1000)
+        screen.blit(font.render("Total:" + str(scores[0]+scores[1]+scores[2]), True, white), [150, 250])
         pygame.display.update()
         pygame.time.wait(2000)
-        screen.blit(font.render("Total:" + str(scores[0]+scores[1]+scores[2]), True, white), [150, 220])
-        pygame.display.update()
-        pygame.time.wait(3000)
 
         start_screen = True
         next_screen = False

@@ -116,7 +116,8 @@ def quiz():
         pygame.display.update()
         pygame.time.wait(1000)
         screen.blit(button_font.render("Your Score is", True, black), [200, 200])
-        score = answer_number
+        fibonacci = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+        score = fibonacci[answer_number]
         screen.blit(font.render(str(score), True, black), [350, 190])           
         pygame.display.update()
         pygame.time.wait(3000)           
